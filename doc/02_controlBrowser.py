@@ -48,3 +48,12 @@ browser_links.forward()
 time.sleep(1)
 browser_links.quit()
 
+
+# 3. 页面刷新
+refresh_url = 'http://www.baidu.com/'
+browser_refresh = webdriver.Chrome('../tools/chromedriver.exe')
+browser_refresh.get(refresh_url)
+time.sleep(2)
+browser_refresh.refresh()
+browser_refresh.quit()
+
