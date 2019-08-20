@@ -42,7 +42,7 @@ print("回退到第一个链接：%s" % first_url)
 browser_links.back()
 
 time.sleep(1)
-print("前进到第二个链接：%s", second_url)
+print("前进到第二个链接：%s" % second_url)
 browser_links.forward()
 
 time.sleep(1)
