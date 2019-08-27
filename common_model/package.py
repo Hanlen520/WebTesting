@@ -77,12 +77,20 @@ class Register(object):
         register_email = self.get_range() + '@163.com'
         register_password = self.get_range() + '@123'
         file_name = '../image/code_image.png'
-        captcha_code = self.discern_captcha_image(file_name=file_name)
+        # captcha_code = self.discern_captcha_image(file_name=file_name)
         self.send_user_info('register_nickname', register_nickname)
         self.send_user_info('register_email', register_email)
         self.send_user_info('register_password', register_password)
-        self.send_user_info('captcha_code', captcha_code)
+        self.send_user_info('captcha_code', 'qwex5')
+        sleep(5)
         self.get_user_element('register-btn').click()
+
+        # 异常处理：注册失败进行截图，方便问题排查
+        captcha_code_error = self.get_user_element('captcha_code_error')
+        if captcha_code_error is None:
+            print("......恭喜你注册成功了......")
+        else:
+            self.driver.save_screenshot('../image/captcha_code_error.png')
         sleep(5)
         self.driver.close()
 
