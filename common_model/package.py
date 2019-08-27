@@ -20,12 +20,25 @@ from api import ShowapiRequest
 
 
 class Register(object):
-    def __init__(self, url):
-        self.driver = self.get_driver(url=url)
+    def __init__(self, url, browser):
+        # self.driver = self.get_driver(url=url)
+        self.driver = self.get_more_driver(url=url, browser=browser)
 
     # 启动浏览器，打开目标测试页面url
     def get_driver(self, url):
         driver = webdriver.Chrome('../tools/chromedriver.exe')
+        driver.get(url=url)
+        driver.maximize_window()
+        return driver
+
+    # 兼容多浏览器执行测试
+    def get_more_driver(self, url, browser):
+        if browser == 'chrome':
+            # 版本 76.0.3809.100（64位）对应的驱动
+            driver = webdriver.Chrome('../tools/chromedriver.exe')
+        elif browser == 'firefox':
+            # FireFox 68.0.2(64位) 对应的驱动，和 chrome 驱动使用有差异
+            driver = webdriver.Firefox()
         driver.get(url=url)
         driver.maximize_window()
         return driver
@@ -97,7 +110,8 @@ class Register(object):
 
 if __name__ == "__main__":
     register_url = 'http://www.5itest.cn/register'
-    r = Register(register_url)
+    browser = 'chrome'
+    r = Register(register_url, browser)
     r.main()
 
 
