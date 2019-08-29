@@ -32,11 +32,15 @@ class RegisterPage(object):
 
     # 验证码输入框
     def get_getcode_num(self):
-        return self.fe.get_element('getcode_num')
+        return self.fe.get_element('captcha_code')
 
     # 验证码图片
     def get_captcha_code(self):
-        return self.fe.get_element('captcha_code')
+        return self.fe.get_element('getcode_num')
+
+    # 获取注册按钮
+    def get_register_btn(self):
+        return self.fe.get_element('register-btn')
 
     # 注册邮箱框文本提示语
     def get_register_email_placeholder(self):
