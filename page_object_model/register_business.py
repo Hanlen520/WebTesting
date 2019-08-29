@@ -75,7 +75,7 @@ if __name__ == "__main__":
     driver = webdriver.Chrome('../tools/chromedriver.exe')
     driver.get(register_url)
     rb = RegisterBusiness(driver)
-    rb.register_email_error('1', 'pass123', 'test@123', 'sds')
+    rb.captcha_code_error('1243589@163.com', 'pass123', 'test@123', 'sds')
 
     sleep(3)
     driver.close()

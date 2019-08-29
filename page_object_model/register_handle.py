@@ -38,13 +38,13 @@ class RegisterHandle(object):
     def get_user_text(self, error_info, *kwargs):
         text = None
         if error_info == "register_email_error":
-            text = self.rp.get_register_email_error().send_keys('value')
+            text = self.rp.get_register_email_error()
         elif error_info == 'register_nickname_error':
-            text = self.rp.get_register_nickname_error().send_keys('value')
+            text = self.rp.get_register_nickname_error()
         elif error_info == 'register_password_error':
-            text = self.rp.register_password_error().send_keys('value')
+            text = self.rp.get_register_password_error()
         elif error_info == 'captcha_code_error':
-            text = self.rp.captcha_code_error().send_keys('value')
+            text = self.rp.get_captcha_code_error()
         else:
             print("error element not found")
         return text

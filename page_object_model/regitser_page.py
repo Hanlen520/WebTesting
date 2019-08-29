@@ -13,6 +13,7 @@
 from basic.find_element import FindElement
 from selenium import webdriver
 
+
 class RegisterPage(object):
     # 初始化元素查找类，执行该类的时候就会加载
     def __init__(self, driver):
