@@ -35,16 +35,16 @@ class RegisterHandle(object):
         self.rp.get_getcode_num().send_keys(captcha)
 
     # 获取错误信息
-    def get_user_text(self, error_info, error_value):
+    def get_user_text(self, error_info, *kwargs):
         text = None
         if error_info == "register_email_error":
-            text = self.rp.get_register_email_error().send_keys(error_value)
+            text = self.rp.get_register_email_error().send_keys('value')
         elif error_info == 'register_nickname_error':
-            text = self.rp.get_register_nickname_error().send_keys(error_value)
+            text = self.rp.get_register_nickname_error().send_keys('value')
         elif error_info == 'register_password_error':
-            text = self.rp.register_password_error().send_keys(error_value)
+            text = self.rp.register_password_error().send_keys('value')
         elif error_info == 'captcha_code_error':
-            text = self.rp.captcha_code_error().send_keys(error_value)
+            text = self.rp.captcha_code_error().send_keys('value')
         else:
             print("error element not found")
         return text
@@ -52,6 +52,10 @@ class RegisterHandle(object):
     # 点击注册按钮
     def click_register_btn(self):
         self.rp.get_register_btn().send_keys()
+
+    # 获取注册按钮的文字，如果有的话就说明注册不成功还停留在注册页面，如果不存在的话说明已经跳转到新的页面也就是注册成功了
+    def get_register_btn_text(self):
+        return self.rp.get_register_btn().text()
 
 
 if __name__ == "__main__":
@@ -64,5 +68,6 @@ if __name__ == "__main__":
     rh.send_register_password('123@123abc')
     rh.send_register_captcha('qwer')
     rh.click_register_btn()
+    print(rh.get_register_btn_text)
     sleep(5)
     driver.close()

@@ -62,6 +62,9 @@ class RegisterPage(object):
         print(self.fe.get_element('captcha_code').get_attribute('placeholder'))
         return self.fe.get_element('captcha_code').get_attribute('placeholder')
 
+    def get_register_btn_text(self):
+        return self.fe.get_element('register_btn').get_attribute('value')
+
    # 不合法注册邮箱错误提示语
     def get_register_email_error(self):
         return self.fe.get_element('register_email_error')
@@ -88,4 +91,5 @@ if __name__ == "__main__":
     rp.get_register_nickname_placeholder()
     rp.get_register_password_placeholder()
     rp.get_captcha_code_placeholder()
+    rp.get_register_btn_text()
     driver.close()
