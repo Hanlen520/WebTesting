@@ -1,11 +1,13 @@
 import requests
 from urllib import parse
-#全局请求头
+
+# 全局请求头
 files = {}
 headers = {}
 body = {}
 timeouts = {}
 resHeader = {}
+
 
 class ShowapiRequest:
     def __init__(self, url, my_appId, my_appSecret):
@@ -27,7 +29,8 @@ class ShowapiRequest:
     def addBodyPara(self, key, value):
         body[key] = value
         return self
-    #设置连接时间和读取时间
+
+    # 设置连接时间和读取时间
     def setTimeout(self, connecttimout, readtimeout):
         timeouts["connecttimout"] = connecttimout
         timeouts["readtimeout"] = readtimeout
