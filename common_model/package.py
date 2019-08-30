@@ -7,7 +7,7 @@
 @Github :    https://crisimple.github.io/
 @Contact :   Crisimple@foxmail.com
 @License :   (C)Copyright 2017-2019, Micro-Circle
-@Desc    :   None
+@Desc    :   模块化测试
 """
 
 from selenium import webdriver
