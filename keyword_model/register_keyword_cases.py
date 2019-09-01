@@ -12,7 +12,6 @@
 
 from util.read_excel import ReadExcel
 from keyword_model.register_keyword import RegisterKeyword
-from selenium import webdriver
 
 
 class RegisterKeywordCases(object):
@@ -42,7 +41,7 @@ class RegisterKeywordCases(object):
         handle_excel = ReadExcel(self.excel_path)
 
         # 获取 excel 关键词测试用例的条数
-        cases_numbers = handle_excel.get_lines()
+        cases_numbers = handle_excel.get_lines() - 1
         print("注册页获取到的关键词测试的测试用例条数为：%s" % cases_numbers)
 
         # 循环遍历测试用例
