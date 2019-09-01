@@ -15,8 +15,8 @@ from time import sleep
 
 
 class RegisterKeyword(object):
-    def __init__(self, driver):
-        self.fe = FindElement(driver)
+    def __init__(self):
+        pass
 
     # 打开浏览器
     def open_browser(self, browser):
@@ -33,6 +33,7 @@ class RegisterKeyword(object):
 
     # 定位元素
     def get_element(self, key):
+        self.fe = FindElement(self.driver)
         return self.fe.get_element(key)
 
     # 输入元素
@@ -58,6 +59,6 @@ if __name__ == "__main__":
     register_url = 'http://www.5itest.cn/register'
     driver = webdriver.Chrome('../tools/chromedriver.exe')
     driver.get(register_url)
-    rk = RegisterKeyword(driver)
+    rk = RegisterKeyword()
     print(rk.get_element('register_email'))
     driver.close()
